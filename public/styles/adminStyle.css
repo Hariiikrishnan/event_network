@@ -1,0 +1,115 @@
+
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    /* margin: 30px; */
+    background-color: #f9c300;
+    color: white;
+    /* padding: 30px; */
+}
+
+.container form{
+    padding: 30px;
+    display: flex;
+    width: 70%;
+    /* height: calc(100-50); */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .container form div{
+    display: flex;
+    width: 100%;
+    height:100%;
+    align-items: center;
+} */
+.container form label{
+    float: left;
+}
+.container form div{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+/* .container form  select{
+width: 113%;
+} */
+/* .container form div{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+} */
+.container form input,select{
+    /* width: 250px; */
+    padding: 10px 15px;
+    margin: 10px 0 ;
+    border-radius: 8px;
+    border:none;
+}
+
+.container form input::placeholder{
+    color: black;
+}
+
+.container form div{
+    width: 350px;
+}
+.container form button{
+   border-radius: 8px;
+   padding: 10px 20px ;
+   border: solid grey 2px;
+}
+
+
+
+.panel{
+    align-items: center;
+    width: 100%;
+}
+.panel .box{
+    margin: 20px 0;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+.portal{
+    width: 300px;
+    height: 200px;
+    border-radius: 30px;
+}
+.portal:nth-child(1){
+    background-color: #f9c300;
+    color: black;
+}
+.portal:nth-child(2){
+    background-color: red;
+    color: white;
+    
+}
+
+.box a{
+    margin: 10px 0;
+    padding: 20px;
+}
+.order{
+    width: 100%;
+    height: inherit;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.order h1{
+    font-size: 3rem;
+}
+
+.order span{
+    font-size:3.5rem;
+}

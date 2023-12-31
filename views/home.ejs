@@ -1,0 +1,131 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        
+        <link rel="stylesheet" href="styles/globalStyles.css" />
+        <link rel="stylesheet" href="styles/homeStyle.css" />
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Playfair+Display&display=swap" rel="stylesheet">
+
+    
+    <!-- Goolge Icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+ <!-- Font Awesome Icons -->
+ <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+    <style>
+
+     
+    </style>
+    </head>
+    <body>
+        
+        <%- include('partials/navbar.ejs') %>
+    
+
+        
+    <section class="search">
+        <form action="/search" method="POST">
+        <div class="bar">
+
+                <input class="searchInput" placeholder="Search for a Pet" />
+                
+
+                <div class="filter"> 
+
+                <select name="eventType" id="eventType">
+                    
+                    <option value="">Event Type</option>
+                    <option value="Marriage">Marriage</option>
+                    <option value="Reception">Reception</option>
+                <option value="Conference">Conference</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Birthday Party">Birthday Party</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Surprise Party">Surprise Party</option>
+                <option value="">Others</option>
+            </select>
+                <select name="planType" id="planType">
+                    
+                    <option value="">Plan Type</option>
+                    <option value="Budget Friendly">Budget Friendly</option>
+                    <option value="Exclusive Events">Exclusive Events</option>
+                    <option value="Premium Events">Premium Events</option>
+                </select>
+                
+                
+                
+                <button type="submit">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
+            </div>
+        </form>
+        </div>
+
+    </section>
+
+
+
+
+        <div class="container">
+            
+            <% for( let i = 0; i < events.length; i++ ) { %>
+                
+                
+                <div class="events-container">
+                    
+                    <div class="img-container">
+                       
+                        <img src="<%- events[i].img_url %>" />
+                        
+                    </div>
+                    
+                    <div class="details">
+                        
+                        <h1>Event Type : <%- events[i].name %></h1>
+                        <h1>Event Plan : <%- events[i].plan %></h1>
+                        <h1>Planner Name : <%= events[i].planner_name %></h1>
+                        <!-- <h1><%- events[i].name %></h1> -->
+
+                        <a href="/event/<%- events[i].e_id %>">
+                            <button>
+                                Know More
+                            </button>
+                        </a>
+                    </div>
+                
+                </div>
+                <% } %>
+            </div>
+            
+
+    <script src="script.js">
+
+    </script>
+
+    <script>
+        //  var containers = document.getElementsByClassName("img-container");
+
+        //  console.log(containers);
+        //  for( int i=0;i<containers.length;i++){
+        //      console.log(i);
+        //      console.log(containers[i]); 
+        //   
+        //  }
+      
+    </script>
+</body>
+</html>

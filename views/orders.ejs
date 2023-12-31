@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <link rel="stylesheet" href="/styles/globalStyles.css" />
+    <link rel="stylesheet" href="/styles/adminStyle.css" />
+    <link rel="stylesheet" href="/styles/orders.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+    <%- include('partials/navbar.ejs') %>
+
+
+    <div class="panel d-flex-center">
+        <h1>Hello admin, <%- user[0].username %></h1>
+        <div class="box d-flex-center" style="flex-wrap: wrap;">
+
+            <% for( let i = 0; i < orders.length; i++ ) { %>
+            
+                <div class="orders d-flex-center">
+                    <p>Order No. <%= [i+1] %></p>
+                    <h2>Client Name : <%= orders[i].name %></h2>
+                    <h2>Client Phone No. <%= orders[i].phNo %></h2>
+                    <h2>Date Booked for : <%= orders[i].date %></h2>
+
+                    <a href='/event/<%= orders[i].e_id %>'>Event Booked for:</a>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    </body>
+</html> 

@@ -1,0 +1,28 @@
+
+
+.orders{
+    background-color: red;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    width: 30%;
+    margin: 10px 0;
+    
+}
+
+.orders h2,.orders a,.orders p{
+    margin: 5px 0;
+}
+.orders a{
+    background-color: white;
+    color: black;
+    width: 200px;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 4px;
+    transition: opacity 0.1s ease;
+}
+.orders a:hover{
+    opacity: 0.7;
+}
+

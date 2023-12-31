@@ -1,0 +1,83 @@
+
+
+.container{
+    padding: 30px;
+}
+
+
+.img-container{
+    width: 100%;
+
+}
+
+.img-container img{
+    /* height: 250px; */
+    /* object-fit: cover; */
+    border-radius: 20px;
+}
+.container .details{
+    margin: 20px 0;
+}
+.container .details button{
+    width: 200px;
+    padding: 5px 15px;
+    margin: 10px 0;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    border: none;
+    transition: opacity 0.1s ease;
+}
+.container .details button:hover{
+    opacity: 0.8;
+}
+.container .details button a{
+    color: white;
+}
+.container .details h1{
+    font-size: 25px;
+}
+
+
+.calendar{
+    background-color: #f9c300;
+    color: black;
+    padding: 5px 0;
+    width: 200px;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 15px;
+    border:solid red 2px;
+    
+}
+.form-container{
+    width: 100%;
+    align-items: center;
+}
+
+.form-container form{
+    width: 70%;
+    height: 300px;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px 0;
+}
+.form-container form input{
+   width: 200px;
+   padding: 10px 15px;
+   border:solid red 2px;
+   text-align: center;
+}
+.form-container form input::placeholder{
+    font-size: 18px;
+    color: black;
+}
+.form-container form button{
+    width: 230px;
+    padding: 10px 30px;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    border:solid grey 2px
+}

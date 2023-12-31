@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <link rel="stylesheet" href="/styles/globalStyles.css" />
+    <link rel="stylesheet" href="/styles/adminStyle.css" />
+
+     
+ <!-- Font Awesome Icons -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+    <%- include('partials/navbar.ejs') %>
+
+
+    <div class="container">
+        <form action='/addEvent/<%= user[0].u_id %>' method="POST" enctype="multipart/form-data">
+            
+            <h1>Hello Admin , <%- user[0].username %></h1>
+            <div>
+                
+                <label for="planner_name">Event Planner Name :</label>
+                <input name="planner_name" type="text" placeholder="Planner Name"/>
+     
+
+
+                <label for="event_name">Event Type:</label>
+                <!-- <input name="event_name" type="text" placeholder="Event Type"/> -->
+                <select name="event_name" id="event_name">
+
+                    <option value="Marriage">Marriage</option>
+                    <option value="Reception">Reception</option>
+                    <option value="Ear Piercing">Ear Piercing</option>
+                <option value="Conference">Conference</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Birthday Party">Birthday Party</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Surprise Party">Surprise Party</option>
+                <option value="">Others</option>
+            </select>
+
+              
+                    
+                    <label for="planType">Event Plan Type:</label>
+                    <select name="planType" id="planType">
+                        <option value="Budget Friendly">Budget Friendly</option>
+                        <option value="Exclusive Events">Exclusive Events</option>
+                        <option value="Premium Events">Premium Events</option>
+                    </select>
+         
+            
+            
+            <label for="veg_price">Veg Menu Price:</label>
+            <input name="veg_price" type="number" placeholder="Price for veg_price Menu"/>
+            <label for="non_veg_price">Non-Veg Menu Price:</label>
+            <input name="non_veg_price" type="number" placeholder="Price for Non - Veg Menu"/>
+            
+            <label for="ref_image">Upload Image for Reference : </label>
+            <input type="file" name="ref_image" />
+
+            <button type="submit" class="sub-btn" onclick="handleLoad()">Create New Event </button>
+        </div>
+        </form>
+    </div>
+
+
+    <script>
+        function handleLoad(){
+            var button = document.getElementsByClassName("sub-btn")[0];
+            button.innerHTML = `<i class='fa fa-circle-o-notch fa-spin'></i>`;
+        }
+    </script>
+</body>
+</html>

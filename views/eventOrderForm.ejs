@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+
+    
+    <link rel="stylesheet" href="/styles/globalStyles.css" />
+    <link rel="stylesheet" href="/styles/singleEvent.css" />
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Playfair+Display&display=swap" rel="stylesheet">
+
+
+<!-- Goolge Icons -->
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<!-- Font Awesome Icons -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+</head>
+<body>
+     
+    <%- include('partials/navbar.ejs') %>
+    
+    <div class="container">
+
+        <div class="d-flex-center form-container">
+            <div class="img-container d-flex-center">
+                <img src="<%= event[0].img_url %>"/>
+            </div>
+            <form class="d-flex-center" action='/orderAt/<%= event[0].e_id %>/<%= event[0].u_id %>' method="POST">
+                <input type="date" class="calendar" name="orderDate"/>
+                <input type="text" name="name" placeholder="Name"/>
+                <input type="number" name="phNo" placeholder="Phone No."/>
+
+                <button type="submit">
+                   
+                        Apply for Order
+                        
+                </button>
+
+                   
+                <a href="/home">
+                    <button>
+
+                            Back
+                        </button>
+                    </a>
+            </form>
+        </div>
+    </div>
+        
+        
+    </body>
+    </html>
