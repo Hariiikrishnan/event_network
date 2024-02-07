@@ -93,6 +93,11 @@ width: 113%;
     color: white;
     
 }
+.portal:nth-child(3){
+    background-color: #551A8B;
+    color: white;
+    
+}
 
 .box a{
     margin: 10px 0;

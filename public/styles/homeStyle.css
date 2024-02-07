@@ -2,8 +2,44 @@
 
 
 
+.img_banner{
+    margin: 10px 0;
+    background: url("/images/login_banner.jpg");
+    width: 100%;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+.img_banner .inner_cont{
+    height: 100%;
+    /* width: 100%; */
+    background: rgb(2,0,36);
+    background: linear-gradient(74deg, rgb(0, 0, 0) 0%, rgba(0,0,0,0) 100%);
+    padding-left: 70px;
+    align-items: start;
+    /* border-radius: 12px */
+}
 
-
+.img_banner .inner_cont h1{
+    width: 40%;
+    /* text-align: center; */
+    color: #fff;
+}
+.img_banner .inner_cont button{
+    width: 200px;
+    padding: 10px 30px;
+    background-color: transparent;
+    border: solid white 2px;
+    color: white;
+    margin: 20px 0;
+    font-size: 17px;
+    transition: all 0.2s ease;
+}
+.img_banner .inner_cont button:hover{
+    background-color: white;
+    color: #000;
+}
 
 .container{
     padding: 30px;
@@ -49,10 +85,19 @@
     padding: 5px 15px;
     margin: 10px 0;
     font-size: 18px;
+    transition: all 0.2s ease;
+    background-color: white;
+    border: none;
+    cursor: grab;
 }
-.events-container .details button a{
+.events-container .details a{
     color:black;
+    width: 200px;
 }
+.events-container .details button:hover{
+    opacity: 0.4;
+}
+
 
 /*
 .events-container .img-container{

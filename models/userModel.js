@@ -13,6 +13,7 @@ const userschema = new mongoose.Schema({
   password: String,
   email:String,
   isAdmin:Boolean,
+  isManager:Boolean,
 });
 userschema.plugin(passportlocalmongoose);
 

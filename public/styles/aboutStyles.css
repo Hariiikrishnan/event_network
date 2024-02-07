@@ -1,0 +1,101 @@
+
+
+
+
+#about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#about h1{
+    margin: 20px 0;
+}
+#about .box{
+    display: flex;
+    /* flex-wrap: wrap; */
+    height: 450px;
+}
+#about .box .container{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#about .box .container p{
+    font-size: 20px;
+}
+#about .box .img{
+    width: 50%;
+    background:url("/images/login_banner.jpg");
+    height:100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#about .below_btn{
+    /* padding: 30px; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+#about .below_btn button{
+    width: 200px;
+    padding: 10px 30px;
+    background-color: transparent;
+    border: solid black 2px;
+    color: black;
+    margin: 20px 0;
+    font-size: 17px;
+    transition: all 0.2s ease;
+}
+
+#about .below_btn button:hover{
+    background-color: black;
+    color: #fff;
+}
+
+#about.howWorks .box{
+    flex-direction: row-reverse;
+}
+
+
+
+
+/* Tab Sized Media Query */
+@media only screen and (max-width: 1020px) {
+    #about .box{
+        display: flex;
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+    #about .box .container{
+        width: 75%;
+    }
+    #about .box .img{
+        height: 300px;
+        width: 100%;
+    }
+}
+/* Mobile Sized Media Query */
+@media screen and (max-width: 480px) {
+    #about .box{
+        display: flex;
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+
+    #about .box .container{
+        width: 75%;
+    }
+    #about .box .img{
+        height: 300px;
+        width: 100%;
+    }
+    
+}

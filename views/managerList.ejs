@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Managers</title>
 
     <link rel="stylesheet" href="/styles/globalStyles.css" />
     <link rel="stylesheet" href="/styles/managerStyle.css" />
@@ -23,15 +23,17 @@
         <h1>Hello admin, <%- user[0].username %></h1>
         <div class="box d-flex-center" style="flex-wrap: wrap;">
 
-            <% for( let i = 0; i < orders.length; i++ ) { %>
+            <% for( let i = 0; i < managers.length; i++ ) { %>
             
                 <div class="orders d-flex-center">
-                    <p>Order No. <%= [i+1] %></p>
-                    <h2>Client Name : <%= orders[i].name %></h2>
-                    <h2>Client Phone No. <%= orders[i].phNo %></h2>
-                    <h2>Date Booked for : <%= orders[i].date %></h2>
+                    <p>Manager No. <%= [i+1] %></p>
+                    <h2>Manager Name : <%= managers[i].username %></h2> 
+                    <h2>Manager Name : <%= managers[i].email %></h2> 
+                    
+                    <!-- <a href='https://mail.google.com/mail/?view=cm&fs=1&to=<%= managers[i].email %>&cc=someone@ola.example&bcc=someone.else@example.com&su=SUBJECT&body=BODY' target="_blank">Mail Him</a> -->
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= managers[i].email %>" target="_blank">Mail Him</a>
 
-                    <a href='/event/<%= orders[i].e_id %>'>Event Booked for:</a>
+                    <!-- <a href='/event/<%= managers[i].e_id %>'>Event Booked for:</a> -->
                 </div>
                 <% } %>
         </div>

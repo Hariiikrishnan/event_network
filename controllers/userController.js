@@ -19,8 +19,12 @@ const registerUser = asyncHandler(async(req,res)=>{
 
 
     User.register(
-        { u_id: uuidv4(), username: req.body.username,email:req.body.email,
+        { u_id: uuidv4(), username: req.body.username,
+          email:req.body.email,
+          // isAdmin:true,
+          isManager:true,
           },
+          
         req.body.password,
         function (err, user) {
           if (err) {
@@ -36,10 +40,14 @@ const registerUser = asyncHandler(async(req,res)=>{
                 User.findOne({ username: req.body.username }).then((result)=>{
                 
                   console.log(result);
-                  if(result.isAdmin){
-                    console.log("Yes Admin");
+                  if(result.isManager){
+                    console.log("Yes Manager");
+                    res.redirect('/manager/'+result.u_id);
+                  }
+                  else if(result.isAdmin){
                     res.redirect('/admin/'+result.u_id);
-                  }else{
+                  }
+                  else{
                     console.log("No Its User");
 
                     res.redirect("home");
@@ -83,9 +91,13 @@ const loginUser = asyncHandler(async(req,res)=>{
               User.findOne({ username: username }).then((result)=>{
                 
                 console.log(result);
-                if(result.isAdmin){
+                if(result.isManager){
+                  res.redirect('/manager/'+result.u_id);
+                }
+                else if(result.isAdmin){
                   res.redirect('/admin/'+result.u_id);
-                }else{
+                }
+                else{
                   res.redirect("home");
                 }
 

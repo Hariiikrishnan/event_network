@@ -11,8 +11,8 @@
 }
 
 .img-container img{
-    /* height: 250px; */
-    /* object-fit: cover; */
+    height: 250px;
+    object-fit: cover;
     border-radius: 20px;
 }
 .container .details{

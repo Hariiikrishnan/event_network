@@ -11,8 +11,7 @@ import {p_uid,upload} from './utils/uploadImage.js';
 import uploadToCloudinary from './utils/cloudinaryUpload.js';
 
 
-import connectCloudinary from './config/cloudinary.js'
-import {getAllEvents} from './controllers/eventController.js';
+import connectCloudinary from './config/cloudinary.js';
 import Event from './models/eventModel.js';
 import {registerUser,loginUser} from './controllers/userController.js';
 import User from './models/userModel.js';
@@ -63,6 +62,12 @@ app.get("/home",(req,res)=>{
 });
 
 
+app.get("/about",(req,res)=>{
+  res.render("about");
+})
+app.get("/howItWorks",(req,res)=>{
+  res.render("howItWorks");
+})
 app.get("/login",(req,res)=>{
   res.render("login");
 })
@@ -70,16 +75,44 @@ app.get("/register",(req,res)=>{
   res.render("register");
 })
 
-app.get("/events",getAllEvents);
-app.get("/admin/:u_id",(req,res)=>{
-  User.find({u_id:req.params.u_id}).then((admin)=>{
-    res.render("adminPortal",{user:admin});
+app.get("/events",(req,res)=>{
+  
+  Event.find({}).then((results)=>{
+    res.json({events:results});
+}).catch((err)=>{
+    console.log(err);
+})
+});
+app.get("/allEvents/:u_id",(req,res)=>{
+  User.find({u_id:req.params.u_id}).then((user)=>{
 
+    Event.find({}).then((results)=>{
+      res.render("allEvents",{events:results,user:user});
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }).catch((error)=>{
+    console.log(error);
   })
 });
-app.get("/adminForm/:u_id",(req,res)=>{
+
+
+app.get("/admin/:u_id",(req,res)=>{
   User.find({u_id:req.params.u_id}).then((admin)=>{
-    res.render("adminForm",{user:admin});
+    res.render("admin",{user:admin});
+  })
+});
+app.get("/manager/:u_id",(req,res)=>{
+  User.find({u_id:req.params.u_id}).then((manager)=>{
+    res.render("managerPortal",{user:manager});
+  })
+});
+
+
+
+app.get("/managerForm/:u_id",(req,res)=>{
+  User.find({u_id:req.params.u_id}).then((manager)=>{
+    res.render("managerForm",{user:manager});
 
   })
 });
@@ -90,6 +123,24 @@ app.get("/event/:e_id",(req,res)=>{
     console.log(err);
   })
 });
+app.post("/eventDelete/:e_id/:u_id",(req,res)=>{
+
+  User.find({u_id:req.params.u_id}).then((user)=>{
+
+    Event.deleteOne({e_id:req.params.e_id}).then((results)=>{
+      res.render("admin",{user:user});
+    }).catch((err)=>{
+      console.log(err);
+    });
+
+
+  }).catch((error)=>{
+    console.log(error);
+  })
+});
+
+
+
 
 app.get("/order/:e_id/:p_name",(req,res)=>{
   console.log(req.query.ordered);
@@ -113,6 +164,31 @@ app.get("/orders/:u_id",(req,res)=>{
     console.log(error);
   })
   })
+app.get("/allOrders/:u_id",(req,res)=>{
+  User.find({u_id:req.params.u_id}).then((user)=>{
+
+    Order.find({}).then((orders)=>{
+      res.render("orders",{orders:orders,user:user});
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }).catch((error)=>{
+    console.log(error);
+  })
+  });
+app.get("/managers/:u_id",(req,res)=>{
+  User.find({u_id:req.params.u_id}).then((user)=>{
+
+    User.find({isManager:true}).then((managers)=>{
+      console.log(managers);
+      res.render("managerList",{managers:managers,user:user});
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }).catch((error)=>{
+    console.log(error);
+  })
+  });
 
 
 
@@ -168,12 +244,15 @@ app.post("/addEvent/:u_id",upload.single("ref_image"),async(req,res)=>{
     event.save().then((result)=>{
       // Event.find
       // console.log(results);
-     res.redirect("/admin/"+req.params.u_id);
+     res.redirect("/manager/"+req.params.u_id);
     }).catch((err)=>{
       console.log(err);
     });
   });
 
+
+
+  
   app.post("/search",(req,res)=>{
     // console.log(req.body.eventType);
     var query;
