@@ -113,7 +113,6 @@ app.get("/manager/:u_id",(req,res)=>{
 app.get("/managerForm/:u_id",(req,res)=>{
   User.find({u_id:req.params.u_id}).then((manager)=>{
     res.render("managerForm",{user:manager});
-
   })
 });
 app.get("/event/:e_id",(req,res)=>{
@@ -235,6 +234,7 @@ app.post("/addEvent/:u_id",upload.single("ref_image"),async(req,res)=>{
       name:req.body.event_name,
       plan:req.body.planType,
       u_id:req.params.u_id,
+      hallSize:req.body.hallSize,
       veg_price:req.body.veg_price,
       non_veg_price:req.body.non_veg_price,
       img_url:result.url,

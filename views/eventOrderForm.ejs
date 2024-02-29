@@ -37,9 +37,9 @@
             <form class="d-flex-center" action='/orderAt/<%= event[0].e_id %>/<%= event[0].u_id %>' method="POST">
                 <input type="date" class="calendar" name="orderDate"/>
                 <input type="text" name="name" placeholder="Name"/>
-                <input type="number" name="phNo" placeholder="Phone No."/>
+                <input  name="phNo" class="phNo" placeholder="Phone No."/>
 
-                <button type="submit">
+                <button type="submit" >
                    
                         Apply for Order
                         
@@ -58,4 +58,21 @@
         
         
     </body>
+    <script>
+        // function handleOnChange(){
+        //     // console.log(e.target.phNo);
+        //     var number = document.getElementsByClassName("phNo")[0].value;
+        //     var parent = document.getElementsByClassName("form-container")[0];
+        //     // console.log(document.getElementsByClassName("phNo")[0].value);
+        //     console.log(Number(number) !== NaN);
+        //     console.log(typeof(number));
+        //     if(Number(number) === NaN){
+        //         console.log("It is not number");
+        //         var newError = document.createElement("p");
+        //         newError.innerHTML= "Please enter only numbers in Phone Number";
+        //         console.log(newError);
+        //         parent.appendChild(newError);
+        //     }
+        // }
+    </script>
     </html>

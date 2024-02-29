@@ -9,6 +9,7 @@ const eventSchema = new mongoose.Schema({
     planner_name:String,
     u_id:String,
     non_veg_price:String,
+    hallSize:String,
     plan:String,
     img_url:String,
   });
