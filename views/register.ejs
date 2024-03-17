@@ -95,7 +95,7 @@
             <div class="img-banner">
             </div>
             <div class="login_group">
-                <form action="/registerAt" method="POST">
+                <form action="/registerAt" method="POST" class="regForm" name="regForm" onsubmit="validateForm()">
                     
                     <div class="login_group_container">
                         <div><h1>Welcome to Event Management </h1></div>
@@ -106,7 +106,7 @@
             <label for="">Password</label>
                     <input type="text" style="margin-bottom: 10px;" name="password">
  <label for="">Re-Password</label>
- <input type="text" style="margin-bottom: 10px;">
+ <input type="text" style="margin-bottom: 10px;" name="rePassword">
                     <button type="submit" class="log-btn" onclick="handleLoad()">Submit</button>
                     
                     <a href="/login" style="text-align: center; margin-top: 10px;">Already have an account ? Login !</a>
@@ -119,10 +119,41 @@
 
     
     <script>
+        var form = document.getElementsByClassName("regForm")[0];
         function handleLoad(){
+            // console.log(e);
             var button = document.getElementsByClassName("log-btn")[0];
             button.innerHTML = `<i class='fa fa-circle-o-notch fa-spin'></i>`;
+
+    
         }
+
+        function validateForm() {
+  let x = document.forms["regForm"]["username"].value;
+  let y = document.forms["regForm"]["password"].value;
+  let z = document.forms["regForm"]["rePassword"].value;
+  let q = document.forms["regForm"]["email"].value;
+  if (x == "" || y== "") {
+    alert("Please enter all fields");
+    return true;
+  }
+
+  if(y !== z){
+    alert("Password fields must be same");
+    return true;
+  }
+
+    var re = /\S+@\S+\.\S+/;
+    if(re.test(q)){
+        alert("Email is Invalid");
+    }
+  
+
+//   e.currentTarget.submit();
+return false
+
+}
+
     </script>
 
 

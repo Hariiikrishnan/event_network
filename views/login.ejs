@@ -94,7 +94,7 @@
             <div class="img-banner">
             </div>
             <div class="login_group">
-                <form action="/loginAt" method="POST">
+                <form action="/loginAt" method="POST"  name="loginForm" onsubmit="validateForm()">
                 <div class="login_group_container">
                     <div><h1>Welcome to Event Management </h1></div>
                         <label for="">Username</label>
@@ -118,6 +118,14 @@
             var button = document.getElementsByClassName("log-btn")[0];
             button.innerHTML = `<i class='fa fa-circle-o-notch fa-spin'></i>`;
         }
+        function validateForm() {
+  let x = document.forms["loginForm"]["username"].value;
+  let y = document.forms["loginForm"]["password"].value;
+  if (x == "" || y== "") {
+    alert("Please enter all fields");
+    return false;
+  }
+}
     </script>
 
 </body>
